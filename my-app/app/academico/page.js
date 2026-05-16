@@ -6,29 +6,34 @@ export default function Academico() {
       <NavBar />
       <main className="portfolio-main">
         <section className="portfolio-header">
-          <span className="eyebrow">Experiencia academica</span>
-          <h1>Formacao, cursos e aprendizados relevantes.</h1>
+          <span className="eyebrow">Experiência Acadêmica</span>
+          <h1>Formação, Cursos e Aprendizados Relevantes.</h1>
           <p>
-            Espaco para apresentar a trajetoria de estudo, materias importantes,
-            certificados e competencias desenvolvidas ao longo da formacao.
+            Minha trajetória de estudo, disciplinas importantes, certificados e
+            competências desenvolvidas durante a formação.
           </p>
         </section>
 
         <section className="portfolio-grid">
           <article className="portfolio-card">
-            <span className="portfolio-meta">Formacao</span>
-            <h2>Curso principal</h2>
-            <p>Adicione aqui sua instituicao, periodo, curso e principais objetivos.</p>
+            <span className="portfolio-meta">Formação</span>
+            <h2>Curso Principal</h2>
+            <p>Cursando Sistemas para Internet na UNICAP.</p>
           </article>
+
           <article className="portfolio-card">
             <span className="portfolio-meta">Disciplinas</span>
-            <h2>Conteudos estudados</h2>
-            <p>Programacao web, banco de dados, algoritmos, engenharia de software e redes.</p>
+            <h2>Conteúdos Estudados</h2>
+            <p>
+              Programação Web, banco de dados, engenharia de software, redes e
+              programação orientada a objetos.
+            </p>
           </article>
+
           <article className="portfolio-card">
             <span className="portfolio-meta">Certificados</span>
-            <h2>Cursos complementares</h2>
-            <p>Inclua cursos livres, bootcamps, workshops e treinamentos concluidos.</p>
+            <h2>Cursos Complementares</h2>
+            <p>Espaço reservado para adicionar certificados, bootcamps e cursos livres.</p>
           </article>
         </section>
       </main>

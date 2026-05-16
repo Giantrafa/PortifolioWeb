@@ -1,5 +1,4 @@
-:root {
-  /* Cores usadas no site inteiro */
+:root {  
   --background: #f5f7fb;
   --foreground: #17202a;
   --muted: #5c6675;
@@ -13,7 +12,6 @@
   --shadow: 0 18px 55px rgba(31, 45, 61, 0.1);
 }
 
-/* Configuracao basica da pagina */
 html {
   height: 100%;
 }
@@ -48,7 +46,6 @@ a {
   text-decoration: none;
 }
 
-/* Barra de navegacao: componente components/NavBar.js */
 .navbar {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
@@ -89,7 +86,6 @@ a {
   outline: none;
 }
 
-/* Pagina inicial: app/page.js */
 .home-page {
   min-height: 100vh;
 }
@@ -127,8 +123,8 @@ a {
 
 .home-hero h1 {
   color: var(--foreground);
-  font-size: clamp(2.4rem, 7vw, 5.35rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.06;
   font-weight: 850;
   letter-spacing: 0;
   text-wrap: balance;
@@ -149,7 +145,7 @@ a {
   margin-top: 32px;
 }
 
-/* Botoes usados na home */
+
 .button-primary,
 .button-secondary {
   min-height: 46px;
@@ -173,7 +169,7 @@ a {
   background: var(--surface);
 }
 
-/* Card lateral da home */
+
 .profile-card {
   width: min(100%, 350px);
   background: var(--surface);
@@ -203,7 +199,6 @@ a {
   background: var(--surface-soft);
 }
 
-/* Secao de cards da home */
 .home-section {
   padding: 68px 0 0;
 }
@@ -257,7 +252,6 @@ a {
   line-height: 1.55;
 }
 
-/* Paginas internas: sobre, academico, proficional e projetos */
 .portfolio-page {
   min-height: 100vh;
 }
@@ -359,7 +353,45 @@ a {
   font-weight: 750;
 }
 
-/* Lista da pagina de projetos */
+.tech-api-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.tech-api-item {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.tech-api-item img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.tech-api-item span {
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.tech-api-status {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
 .project-list {
   display: grid;
   gap: 18px;
@@ -386,6 +418,27 @@ a {
   line-height: 1.65;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  color: var(--accent-strong);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-soft);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
 .project-status {
   color: #7a4d00;
   background: var(--warning-soft);
@@ -396,7 +449,6 @@ a {
   white-space: nowrap;
 }
 
-/* Ajustes responsivos para telas menores */
 @media (max-width: 920px) {
   .home-hero {
     align-items: flex-start;

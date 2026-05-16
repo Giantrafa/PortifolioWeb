@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
+import TecnologiasApi from "@/components/TecnologiasApi";
 
-const tecnologias = ["Next.js", "React", "JavaScript", "CSS global", "App Router"];
+const tecnologias = ["Next.js", "React", "JavaScript", "CSS", "App Router", "API"];
 
 export default function Sobre() {
   return (
@@ -9,32 +10,35 @@ export default function Sobre() {
       <main className="portfolio-main">
         <section className="portfolio-header">
           <span className="eyebrow">Sobre</span>
-          <h1>Perfil, tecnologias e base do projeto.</h1>
-          <p>
-            Esta pagina organiza a apresentacao pessoal do portifolio e deixa um
-            espaco claro para descrever objetivos, areas de interesse e ferramentas
-            usadas no desenvolvimento.
-          </p>
+          <h1>Perfil, Tecnologias e Base do Projeto.</h1>
+          <p>Meu nome é Rafael, sou estudante de Sistemas para Internet na UNICAP.</p>
         </section>
 
         <section className="portfolio-wide-grid">
           <article className="portfolio-panel">
-            <h2>Resumo profissional</h2>
+            <h2>Resumo Profissional</h2>
             <p>
-              Desenvolvedor em formacao com interesse em criar interfaces simples,
-              responsivas e bem estruturadas. O foco deste portifolio e mostrar
-              evolucao tecnica, projetos praticos e capacidade de organizar uma
-              aplicacao web moderna.
+              Desenvolvedor em formação com interesse em Front End e Back End,
+              explorando diferentes áreas para evoluir como profissional.
             </p>
           </article>
 
           <article className="portfolio-panel">
-            <h2>Tecnologias utilizadas</h2>
+            <h2>Tecnologias Utilizadas Neste Portfólio</h2>
             <div className="portfolio-tags">
               {tecnologias.map((tecnologia) => (
                 <span key={tecnologia}>{tecnologia}</span>
               ))}
             </div>
+          </article>
+
+          <article className="portfolio-panel">
+            <h2>Tecnologias que Utilizo</h2>
+            <p>
+              Esta área chama uma API interna para demonstrar as tecnologias que
+              sei usar.
+            </p>
+            <TecnologiasApi />
           </article>
         </section>
       </main>

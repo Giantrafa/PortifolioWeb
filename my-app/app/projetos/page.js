@@ -2,19 +2,16 @@ import NavBar from "@/components/NavBar";
 
 const projetos = [
   {
-    nome: "PortifolioWeb",
-    descricao: "Aplicacao em Next.js para organizar perfil, estudos, experiencia e projetos.",
+    nome: "PortfólioWeb",
+    descricao: "Aplicação em Next.js para organizar perfil, estudos, experiência e projetos.",
     status: "Em andamento",
+    github: "https://github.com/Giantrafa/PortifolioWeb",
   },
   {
-    nome: "Projeto academico",
-    descricao: "Reserve este card para um trabalho de faculdade com objetivo, tecnologias e aprendizados.",
+    nome: "Projeto Acadêmico",
+    descricao: "Projeto Criado Para Final do Semestre.",
     status: "Para preencher",
-  },
-  {
-    nome: "Sistema pratico",
-    descricao: "Use este espaco para um projeto com telas, regras de negocio, API ou banco de dados.",
-    status: "Para preencher",
+    github: "",
   },
 ];
 
@@ -24,8 +21,8 @@ export default function Projetos() {
       <NavBar />
       <main className="portfolio-main">
         <section className="portfolio-header">
-          <span className="eyebrow">Projetos desenvolvidos</span>
-          <h1>Entregas para demonstrar pratica e evolucao.</h1>
+          <span className="eyebrow">Projetos Desenvolvidos</span>
+          <h1>Entregas para Demonstrar Prática e Evolução.</h1>
           <p>
             Lista inicial de projetos. Cada item pode receber links para GitHub,
             deploy, imagens, tecnologias usadas e aprendizados principais.
@@ -37,7 +34,19 @@ export default function Projetos() {
             <article className="project-card" key={projeto.nome}>
               <div>
                 <h2>{projeto.nome}</h2>
-                <p>{projeto.descricao}</p>
+                <p>{projeto.descricao}</p>                
+                {projeto.github && (
+                  <div className="project-links">
+                    <a
+                      className="project-link"
+                      href={projeto.github}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Ver no GitHub
+                    </a>
+                  </div>
+                )}
               </div>
               <span className="project-status">{projeto.status}</span>
             </article>

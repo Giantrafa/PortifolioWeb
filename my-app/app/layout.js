@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Portifolio Web",
-  description: "Portifolio pessoal com experiencias, estudos e projetos.",
+  title: "Portfólio Web",
+  description: "Portfólio pessoal com experiências, estudos e projetos.",
 };
 
 export default function RootLayout({ children }) {
