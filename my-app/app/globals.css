@@ -1,15 +1,19 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores usadas no site inteiro */
+  --background: #f5f7fb;
+  --foreground: #17202a;
+  --muted: #5c6675;
+  --surface: #ffffff;
+  --surface-soft: #eef3f8;
+  --line: #d9e2ec;
+  --accent: #24745b;
+  --accent-strong: #163f5f;
+  --accent-soft: #dff1ea;
+  --warning-soft: #fff1d8;
+  --shadow: 0 18px 55px rgba(31, 45, 61, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Configuracao basica da pagina */
 html {
   height: 100%;
 }
@@ -25,7 +29,9 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--foreground);
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(36, 116, 91, 0.11), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 42%);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,8 +48,410 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Barra de navegacao: componente components/NavBar.js */
+.navbar {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: var(--accent-strong);
+  letter-spacing: 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navbar-links a {
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 650;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus-visible {
+  color: var(--accent-strong);
+  background: var(--surface-soft);
+  outline: none;
+}
+
+/* Pagina inicial: app/page.js */
+.home-page {
+  min-height: 100vh;
+}
+
+.home-main {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 16px 80px;
+}
+
+.home-hero {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 28px 0 72px;
+}
+
+.home-hero-text {
+  max-width: 680px;
+}
+
+.eyebrow,
+.card-label {
+  display: inline-flex;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.home-hero h1 {
+  color: var(--foreground);
+  font-size: clamp(2.4rem, 7vw, 5.35rem);
+  line-height: 0.98;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-wrap: balance;
+  margin-bottom: 22px;
+}
+
+.home-hero p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Botoes usados na home */
+.button-primary,
+.button-secondary {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-weight: 750;
+  border: 1px solid transparent;
+}
+
+.button-primary {
+  background: var(--accent-strong);
+  color: #ffffff;
+}
+
+.button-secondary {
+  color: var(--accent-strong);
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+/* Card lateral da home */
+.profile-card {
+  width: min(100%, 350px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.profile-card h2 {
+  color: var(--accent-strong);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin-bottom: 22px;
+}
+
+.profile-card ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.profile-card li {
+  color: var(--muted);
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--surface-soft);
+}
+
+/* Secao de cards da home */
+.home-section {
+  padding: 68px 0 0;
+}
+
+.home-section-header {
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.home-section h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--foreground);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-card {
+  min-height: 236px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.home-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.home-card span {
+  color: var(--accent);
+  font-weight: 850;
+}
+
+.home-card h3 {
+  color: var(--accent-strong);
+  font-size: 1.2rem;
+}
+
+.home-card p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Paginas internas: sobre, academico, proficional e projetos */
+.portfolio-page {
+  min-height: 100vh;
+}
+
+.portfolio-main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0 80px;
+}
+
+.portfolio-header {
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.portfolio-header h1 {
+  color: var(--foreground);
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+}
+
+.portfolio-header p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.portfolio-wide-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.portfolio-card,
+.portfolio-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 12px 35px rgba(31, 45, 61, 0.07);
+}
+
+.portfolio-card {
+  min-height: 220px;
+  padding: 24px;
+}
+
+.portfolio-card h2,
+.portfolio-panel h2 {
+  color: var(--accent-strong);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.portfolio-card p,
+.portfolio-panel p,
+.portfolio-list li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.portfolio-meta {
+  display: inline-flex;
+  color: var(--accent);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.portfolio-panel {
+  padding: 26px;
+}
+
+.portfolio-list {
+  display: grid;
+  gap: 12px;
+  padding-left: 18px;
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.portfolio-tags span {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+/* Lista da pagina de projetos */
+.project-list {
+  display: grid;
+  gap: 18px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.project-card h2 {
+  color: var(--accent-strong);
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.project-status {
+  color: #7a4d00;
+  background: var(--warning-soft);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Ajustes responsivos para telas menores */
+@media (max-width: 920px) {
+  .home-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 880px) {
+  .portfolio-grid,
+  .portfolio-wide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px 0;
+  }
+
+  .navbar-links {
+    justify-content: flex-start;
+  }
+
+  .navbar-links a {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-main {
+    padding-top: 24px;
+  }
+
+  .home-hero {
+    min-height: auto;
+    padding-bottom: 48px;
+  }
+
+  .profile-card {
+    padding: 22px;
   }
 }
